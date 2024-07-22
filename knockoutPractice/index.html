@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" 
+         type = "text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form data-bind="submit: addTodo">
+        <input data-bind='value: todoToAdd, valueUpdate: "afterkeydown"' />
+        <button type="submit" data-bind="enable: todoToAdd().length > 0">Add</button>
+        <p>Your Todos: </p>
+        <select multiple="multiple" width="60px" data-bind="options: todos"></select>
+    </form>
+    <script>
+        function AppViewModel(todos) {
+            this.todos = ko.observableArray(todos);
+            this.todoToAdd = ko.observable("");
+
+            this.addTodo = function () {
+                if(this.todoToAdd () != "") {
+                    console.log(this.todoToAdd())
+                    this.todos.push(this.todoToAdd());
+                    this.todoToAdd(""); // clear the input
+                }
+            }.bind(this);
+        }
+        // Activate knockout js
+        ko.applyBindings(new AppViewModel(["Learn Ojet"]))
+    </script>
+</body>
+</html>
