@@ -1,0 +1,1 @@
+Login Page --> loginbtn --> display cards (template) --> show details of user
