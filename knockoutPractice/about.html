@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"
+         type = "text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>Friends List</h2>
+    <div data-bind="template: { name: 'friend-template', data: friend1}"></div>
+    <div data-bind="template: { name: 'friend-template', data: friend2}"></div>
+
+    <script type="text/html" id="friend-template">
+        <h3 data-bind="text: name"></h3>
+        <p>Contact: <span data-bind="text: contact"></span></p>
+        <p>Email: <span data-bind="text: email"></span></p>
+    </script>
+
+    <script type="text/javascript">
+        function MyViewModel() {
+            this.friend1 = {
+                name: "Aaryan",
+                contact: 12344566,
+                email: "aryan@gmail.com"
+            };
+
+            this.friend2 = {
+                name: "Arush",
+                contact: 12344566,
+                email: "arush@gmail.com"
+            };
+        }
+        ko.applyBindings(new MyViewModel())
+    </script>
+</body>
+</html>
