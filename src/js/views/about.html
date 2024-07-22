@@ -1,0 +1,20 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>About Content Area</h1>
+  <h2>ok aryan</h2>
+  <oj-form-layout
+    id="formLayoutOptions"
+    max-columns="4"
+    direction="row"
+    user-assistance-density="compact">
+    <oj-input-text id="input-name" value="{{name}}" label-hint="Name"></oj-input-text>
+    <oj-input-text id="input-lname" value="{{lastname}}" disabled="[[isLastNameDisabled]]" label-hint="Last Name"></oj-input-text>
+    <oj-input-number id="input-age" value="{{age}}" label-hint="Age"></oj-input-number>
+    <oj-bind-text value="{{agename}}"></oj-bind-text>
+    <oj-button id="mybtn" on-oj-action="[[clicked]]">My btn</oj-button>
+  </oj-form-layout>
+</div>
