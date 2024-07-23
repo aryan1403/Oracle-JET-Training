@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const db = require('./db/db');
 
 const app = express()
 app.use(bodyParser.json())
@@ -11,17 +12,21 @@ app.get('/', (req, res) => {
     res.send("Hello world");
 })
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
     const body = req.body;
-    if(body.email == "aryan@gmail.com" && body.pass == "123") {
-        res.json({
-            msg: "Login successfull",
-        })
+
+    const count = await db.find({email: body.email, pass: body.pass}).countDocuments();
+    if(count == 1) { // user exist
+        res.send({msg: "Login successfull"})
     } else {
-        res.json({
-            msg: "Login failed",
-        })
+        res.send({msg: "Login failed"})
     }
+})
+
+app.post('/register', async (req, res) => {
+    const body = req.body;
+    const data = await db.create(body);
+    res.status(201).json({msg: 'user created successfully', data: data});
 })
 
 app.listen(process.env.PORT, () => console.log("app started"));
