@@ -1,11 +1,12 @@
-<!--
- Copyright (c) 2014, 2024, Oracle and/or its affiliates.
- Licensed under The Universal Permissive License (UPL), Version 1.0
- as shown at https://oss.oracle.com/licenses/upl/
- -->
 <div class="oj-hybrid-padding">
-  <h1>Incidents Content Area</h1>
-  <div>
-      To change the content of this section, you will make edits to the incidents.html file located in the /js/views folder.
-  </div>
+  <h1>Login Page</h1>
+  <oj-form-layout
+    id="formLayoutOptions"
+    max-columns="1"
+    direction="row"
+    user-assistance-density="compact">
+        <oj-input-text id="email" value="{{email}}" label-hint="Email"></oj-input-text>
+        <oj-input-text id="pass" value="{{pass}}" label-hint="Password"></oj-input-text>
+        <oj-button id="loginbtn" on-oj-action="[[login]]">Login</oj-button>
+  </oj-form-layout>
 </div>
