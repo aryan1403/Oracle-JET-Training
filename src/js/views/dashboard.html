@@ -7,5 +7,24 @@
   <h1>Dashboard Content Area</h1>
   <div>
       To change the content of this section, you will make edits to the dashboard.html file located in the /js/views folder.
-  </div>
+    </div>
+    <oj-button on-oj-action="[[addp]]">Add Product 3</oj-button>
+    <oj-menu-button id="menuButton" class="oj-sm-margin-5x-bottom">
+      File
+      <oj-menu id="myMenu" slot="menu" on-oj-menu-action="[[menuaction]]">
+        <oj-bind-for-each data="[[menuItems]]">
+          <template>
+            <oj-option
+              :id="[[$current.data.id]]"
+              disabled="[[$current.data.disabled]]"
+              value="[[$current.data.label]]">
+              <span>
+                <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
+              </span>
+            </oj-option>
+          </template>
+        </oj-bind-for-each>
+      </oj-menu>
+    </oj-menu-button>
+  
 </div>

@@ -8,47 +8,42 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['../accUtils'],
- function(accUtils) {
+define(['knockout', 'ojs/ojmenu', 'ojs/ojoption', 'ojs/ojbutton'],
+ function(ko) {
     function DashboardViewModel() {
-      // Below are a set of the ViewModel methods invoked by the oj-module component.
-      // Please reference the oj-module jsDoc for additional information.
+      this.menuaction = (event) => {
+        // console.log(event.detail.selectedValue);
+        switch (event.detail.selectedValue) {
+          case 'Product 1':
+            // logic (api call)
+            break;
+          case 'Product 2':
 
-      /**
-       * Optional ViewModel method invoked after the View is inserted into the
-       * document DOM.  The application can put logic that requires the DOM being
-       * attached here.
-       * This method might be called multiple times - after the View is created
-       * and inserted into the DOM and after the View is reconnected
-       * after being disconnected.
-       */
-      this.connected = () => {
-        accUtils.announce('Dashboard page loaded.', 'assertive');
-        document.title = "Dashboard";
-        // Implement further logic if needed
-      };
+              break;
+        
+          default:
+            break;
+        }
+      }
 
-      /**
-       * Optional ViewModel method invoked after the View is disconnected from the DOM.
-       */
-      this.disconnected = () => {
-        // Implement if needed
-      };
+      this.addp = (_) => {
+        console.log(this.menuItems());
+        this.menuItems.push(
+          { id: 'print', label: 'Print...', disabled: true, value: 'Print...' }
+        )        
+      }
 
-      /**
-       * Optional ViewModel method invoked after transition to the new View is complete.
-       * That includes any possible animation between the old and the new View.
-       */
-      this.transitionCompleted = () => {
-        // Implement if needed
-      };
+      this.menuItems = ko.observableArray([
+        { id: 'new', label: 'New', disabled: false, value: 'New' },
+        { id: 'open', label: 'Open', disabled: false, value: 'Open' },
+        { id: 'save', label: 'Save', disabled: false, value: 'Save' },
+        { id: 'saveas', label: 'Save As...', disabled: false, value: 'Save As...' },
+        { id: 'print', label: 'Print...', disabled: true, value: 'Print...' }
+      ]);
+      
+
     }
 
-    /*
-     * Returns an instance of the ViewModel providing one instance of the ViewModel. If needed,
-     * return a constructor for the ViewModel so that the ViewModel is constructed
-     * each time the view is displayed.
-     */
     return DashboardViewModel;
   }
 );
