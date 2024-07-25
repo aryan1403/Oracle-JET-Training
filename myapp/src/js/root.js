@@ -11,11 +11,12 @@
  * by some modules), we are listing it explicitly to get the reference to the 'ko'
  * object in the callback
  */
-require(['ojs/ojbootstrap', 'ojs/ojcontext', 'knockout', 'ojs/ojknockout'],
-  function (Bootstrap, Context, ko) {
+require(['ojs/ojbootstrap', 'ojs/ojcontext', 'knockout', './controller', 'ojs/ojknockout'],
+  function (Bootstrap, Context, ko, app) {
     Bootstrap.whenDocumentReady().then(
       function () {
         function init() {
+          ko.applyBindings(app, document.getElementById('globalBody'));
         }
         // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready
         // event before executing any code that might interact with Cordova APIs or plugins.

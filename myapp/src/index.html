@@ -31,21 +31,18 @@
     <link rel="icon" type="image/x-icon" href="css/images/JET-Favicon-Red-32x32.png">
     <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
     <meta name="apple-mobile-web-app-title" content="Oracle JET">
-
+    
 		<!-- injector:theme -->
 		<!-- endinjector -->
 
   </head>
   <body class="oj-web-applayout-body">
-    <!-- This injects script tags for the main javascript files -->
-		<!-- injector:scripts -->
-		<!-- endinjector -->
-    <script type="text/html">
-      <h1>hello</h1>
-    </script>
+    <div id="globalBody">
+      <h1>
+        <oj-bind-text value="{{ok}}"></oj-bind-text>
+      </h1>
+    </div>
     <div role="main" class="oj-web-applayout-max-width oj-web-applayout-content">
-      <!-- Place your page content here -->
-      <h1>hello</h1>
     </div>
   </body>
 </html>

@@ -7,11 +7,13 @@
  */
 import { h } from "preact";
 import { Dashboard } from "../dashboard/index";
+import { Home } from "../home/index";
 
 export function Content() {
   return (
     <div class="oj-web-applayout-max-width oj-web-applayout-content">
       <Dashboard />
+      <Home />
     </div>
   );
 };
