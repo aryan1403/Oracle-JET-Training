@@ -19,12 +19,7 @@ export const Content = ({router, page}: Props) => {
   let pageContent = (page: string) => {
     switch (page) {
       case "home":
-        return ( 
-          <>
-          <h1>Home</h1>
-          <oj-button onClick={() => router.go({path: "about"})}>About</oj-button>
-          </>
-        )
+        return <Home router={router} />
       case "about":
         return <h1>About</h1>
       case "contact":
