@@ -14,6 +14,7 @@ export function Content() {
     <div class="oj-web-applayout-max-width oj-web-applayout-content">
       <Dashboard />
       <Home />
+      <h3>Update 1.1</h3>
     </div>
   );
 };
