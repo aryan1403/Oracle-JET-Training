@@ -93,7 +93,7 @@ export const App = registerCustomElement(
           onPageChanged={pageChangeHandler}
           routes={routeArray}
         />
-        <Content />
+        <Content page={routePath} router={router} />
         <Footer />
       </div>
     );
